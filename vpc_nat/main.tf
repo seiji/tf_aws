@@ -85,31 +85,11 @@ resource "aws_security_group" "nat" {
 data "aws_ami" "nat" {
   most_recent = true
   owners      = ["amazon"]
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
-  filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
-
-  filter {
-    name   = "name"
-    values = ["amzn-ami-vpc-nat*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  filter {
-    name   = "block-device-mapping.volume-type"
-    values = ["gp2"]
-  }
+  filter { name = "architecture" values = ["x86_64"] }
+  filter { name = "root-device-type" values = ["ebs"] }
+  filter { name = "name" values = ["amzn-ami-vpc-nat*"] }
+  filter { name = "virtualization-type" values = ["hvm"] }
+  filter { name = "block-device-mapping.volume-type" values = ["gp2"] }
 }
 
 resource "aws_instance" "nat" {
