@@ -112,6 +112,7 @@ resource "aws_instance" "nat" {
   subnet_id = "${element(aws_subnet.public.*.id, count.index)}"
   tags { Name = "${var.name}-nat" }
   count = "${length(var.public_subnets)}"
+  source_dest_check = false
   key_name = "${var.key_name}"
 }
 
