@@ -1,6 +1,6 @@
-resource "aws_security_group" "elb" {
+resource "aws_security_group" "main" {
   name = "${var.name}"
-  description = "Security Group ${var.security_group_name}"
+  description = "Security Group ${var.name}"
   vpc_id = "${var.vpc_id}"
 
   ingress {
