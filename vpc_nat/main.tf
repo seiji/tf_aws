@@ -36,7 +36,7 @@ resource "aws_default_security_group" "default" {
     from_port = 0
     to_port   = 0
   }
-  tags { Name = "${var.name}-sg-default" }
+  tags { Name = "${var.name}-default" }
 }
 
 resource "aws_security_group" "nat" {
@@ -91,7 +91,7 @@ resource "aws_security_group" "nat" {
   }
 
   vpc_id = "${aws_vpc.main.id}"
-  tags { Name = "${var.name}-sg-nat" }
+  tags { Name = "${var.name}-nat" }
 }
 
 data "aws_ami" "nat" {
